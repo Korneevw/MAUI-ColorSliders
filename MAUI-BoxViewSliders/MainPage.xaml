@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUI_BoxViewSliders.MainPage"
+             xmlns:local="clr-namespace:MAUI_BoxViewSliders"
+             x:Name="page">
+    
+    <ContentPage.Resources>
+        <local:DoubleToIntConverter x:Key="doubleToInt"/>
+    </ContentPage.Resources>
+    
+    <ScrollView>
+        <VerticalStackLayout>
+            <Slider x:Name="redSlider" Minimum="0" Maximum="1" ValueChanged="Slider_ValueChanged"/>
+            <Label Text="{Binding Source={x:Reference redSlider}, 
+                                  Path=Value, 
+                                  Converter={StaticResource doubleToInt}, 
+                                  ConverterParameter=255, 
+                                  StringFormat='Red = {0}'}" HorizontalOptions="Center"/>
+            <Slider x:Name="greenSlider" Minimum="0" Maximum="1" ValueChanged="Slider_ValueChanged"/>
+            <Label Text="{Binding Source={x:Reference greenSlider}, 
+                                  Path=Value, 
+                                  Converter={StaticResource doubleToInt}, 
+                                  ConverterParameter=255, 
+                                  StringFormat='Green = {0}'}" HorizontalOptions="Center"/>
+            <Slider x:Name="blueSlider" Minimum="0" Maximum="1" ValueChanged="Slider_ValueChanged"/>
+            <Label Text="{Binding Source={x:Reference blueSlider}, 
+                                  Path=Value, 
+                                  Converter={StaticResource doubleToInt}, 
+                                  ConverterParameter=255, 
+                                  StringFormat='Blue = {0}'}" HorizontalOptions="Center"/>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
